@@ -130,4 +130,4 @@ Run the tests again using the command `ember t -s`, and toggle "Hide passed test
 Now we are listing rentals, and and verifying it with an acceptance test.
 This leaves us with 2 remaining acceptance test failures (and 1 jshint failure):
 
-![list rentals test passing](../../images/model-hook/passing-list-rentals-tests.png)
+![list rentals test passing](../../images/model-hook/model-hook.png)
