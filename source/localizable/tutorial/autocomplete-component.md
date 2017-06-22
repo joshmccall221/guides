@@ -44,7 +44,7 @@ In this case we are passing, or "yielding", our filter data to the inner markup 
   </ul>
 {{/list-filter}}
 {{#each model as |rentalUnit|}}
-      {{rental-listing rental=rentalUnit}}
+  {{rental-listing rental=rentalUnit}}
 {{/each}}
 ```
 
