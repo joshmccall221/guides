@@ -45,7 +45,7 @@ If we open `/app/router.js`, we'll see a new line of code for the **about** rout
 `this.route('about')` in the `Router.map` function. That new line of code tells the Ember router
 to run our `/app/routes/about.js` file when a visitor navigates to `/about`.
 
-```app/router.js{+10}
+```app/router.js{10}
 import Ember from 'ember';
 import config from './config/environment';
 
@@ -65,7 +65,8 @@ Because we only plan to display static contact on our about page, we won't adjus
 route handler file right now. Instead, let's open our `/app/templates/about.hbs` template file and add some info about
 Super Rentals:
 
-```app/templates/about.hbs
+```app/templates/about.hbs{-1,+2,+3,+4,+5,+6,+7,+8,+9,+10}
+{{outlet}}
 <div class="jumbo">
   <div class="right tomster"></div>
   <h2>About Super Rentals</h2>
@@ -94,7 +95,8 @@ Here again, we add a new `contact` route in `app/router.js` and generate a route
 
 In the route template `/app/templates/contact.hbs`, let's add our contact details:
 
-```app/templates/contact.hbs
+```app/templates/contact.hbs{-1,+2,+3,+4,+5,+6,+7,+8,+9,+10,+11,+12,+13,+14,+15,+16}
+{{outlet}}
 <div class="jumbo">
   <div class="right tomster"></div>
   <h2>Contact Us</h2>
@@ -178,7 +180,8 @@ ember g route rentals
 And then let's update our new template (`/app/templates/rentals.hbs`) with some initial content.
 We'll come back to this page in a bit to add in the actual rental properties.
 
-```app/templates/rentals.hbs
+```app/templates/rentals.hbs{-1,+2,+3,+4,+5,+6,+7,+8,+9}
+{{outlet}}
 <div class="jumbo">
   <div class="right tomster"></div>
   <h2>Welcome!</h2>
@@ -252,7 +255,8 @@ add a common header across the top of our page to display our app's title and it
 To show something on every page, we can use the application template (which we edited earlier).
 Let's open it again (`/app/templates/application.hbs`) and replace its contents with the following:
 
-```app/templates/application.hbs
+```app/templates/application.hbs{-1,+2,+3,+4,+5,+6,+7,+8,+9,+10,+12,+12,+13,+14,+15,+16,+17,+18,+19,+20,+21}
+{{outlet}}
 <div class="container">
   <div class="menu">
     {{#link-to 'index'}}
@@ -296,7 +300,7 @@ goals, which include the ability to navigate to an `about` page and a `contact` 
 First, we want to test that visiting `/` properly redirects to `/rentals`. We'll use the Ember `visit` helper
 and then make sure our current URL is `/rentals` once the redirect occurs.
 
-```/tests/acceptance/list-rentals-test.js
+```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5}
 test('should show rentals as the home page', function (assert) {
   visit('/');
   andThen(function() {
